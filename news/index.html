@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -63,7 +67,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -77,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gargle</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0.9005</span>
       </span>
     </div>
 
@@ -94,35 +98,44 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/articles/managing-tokens-securely.html">Managing tokens securely</a>
+      <a href="../articles/non-interactive-auth.html">Non-interactive auth</a>
+    </li>
+    <li>
+      <a href="../articles/troubleshooting.html">Troubleshooting gargle auth</a>
     </li>
     <li>
       <a href="../articles/auth-from-web.html">Auth when using R in the browser</a>
     </li>
     <li>
-      <a href="../articles/gargle-auth-in-client-package.html">How to use gargle for auth in a client package</a>
-    </li>
-    <li>
       <a href="../articles/get-api-credentials.html">How to get your own API credentials</a>
     </li>
+    <li class="divider"></li>
     <li>
-      <a href="../articles/how-gargle-gets-tokens.html">How gargle gets tokens</a>
-    </li>
-    <li>
-      <a href="../articles/non-interactive-auth.html">Non-interactive auth</a>
-    </li>
-    <li>
-      <a href="../articles/request-helper-functions.html">Request helper functions</a>
+      <a href="../articles/index.html">More...</a>
     </li>
   </ul>
 </li>
-<li>
-  <a href="../news/index.html">News</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Blog posts</li>
+    <li>
+      <a href="https://www.tidyverse.org/blog/2019/08/gargle-hello-world/">gargle’s debut on CRAN</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Change log</a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/r-lib/gargle">
+  <a href="https://github.com/r-lib/gargle/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -140,24 +153,26 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/r-lib/gargle/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="gargle-development-version" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="development version">
 <a href="#gargle-development-version" class="anchor"></a>gargle (development version)<small> Unreleased </small>
 </h1>
 <ul>
-<li><p>All R6 classes have better documentation now, thanks for new capabilities in roxygen2.</p></li>
+<li><p><code><a href="../reference/request_make.html">request_make()</a></code> default to <code>encode = "json"</code>, which differs from the httr default, but aligns better with Google APIs (<a href='https://github.com/r-lib/gargle/issues/124'>#124</a>).</p></li>
+<li><p><code><a href="../reference/field_mask.html">field_mask()</a></code> is a utility function for constructing a Protocol-Buffers-style, JSON-encoded field mask from an R list.</p></li>
+<li><p>All R6 classes have better documentation now, thanks to new capabilities in roxygen2.</p></li>
 <li><p>OAuth2 flow can only be initiated when <code><a href="https://rlang.r-lib.org/reference/is_interactive.html">rlang::is_interactive()</a></code> is <code>TRUE</code>. If a new token is needed in a non-interactive session, gargle now throws an error (<a href='https://github.com/r-lib/gargle/issues/113'>#113</a>).</p></li>
 <li><p>The application default credentials path is fixed on non-Windows platforms (<a href='https://github.com/r-lib/gargle/issues/115'>#115</a>, <a href='https://github.com/acroz'>@acroz</a>).</p></li>
 <li><p><code><a href="../reference/response_process.html">response_process()</a></code> explicitly declares the UTF-8 encoding of the content in Google API responses <a href="https://github.com/tidyverse/googlesheets4/issues/26">tidyverse/googlesheets4<a href='https://github.com/r-lib/gargle/issues/26'>#26</a></a>.</p></li>
 </ul>
 </div>
-    <div id="gargle-0-4-0" class="section level1">
-<h1 class="page-header">
-<a href="#gargle-0-4-0" class="anchor"></a>gargle 0.4.0<small> 2019-10-04 </small>
+    <div id="gargle-040" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.0">
+<a href="#gargle-040" class="anchor"></a>gargle 0.4.0<small> 2019-10-04 </small>
 </h1>
 <ul>
 <li><p>Eliminated uninformative failure when OAuth tokens cached on R &lt;= 3.5 are re-loaded on R &gt;= 3.6. The change to the default serialization version (2 vs. 3) creates an apparent mismatch between a token’s hash and its key. Instead of inexplicably failing, now we attempt to repair the cache and carry on (<a href='https://github.com/r-lib/gargle/issues/109'>#109</a>, <a href="https://github.com/tidyverse/googledrive/issues/274">tidyverse/googledrive<a href='https://github.com/r-lib/gargle/issues/274'>#274</a></a>.</p></li>
@@ -167,9 +182,9 @@
 <li><p><code><a href="../reference/credentials_gce.html">credentials_gce()</a></code> gains <code>cloud-platform</code> as a default scope, assuming that the typical user wants to “View and manage your data across Google Cloud Platform services” (<a href='https://github.com/r-lib/gargle/issues/110'>#110</a>, <a href='https://github.com/MarkEdmondson1234'>@MarkEdmondson1234</a>).</p></li>
 </ul>
 </div>
-    <div id="gargle-0-3-1" class="section level1">
-<h1 class="page-header">
-<a href="#gargle-0-3-1" class="anchor"></a>gargle 0.3.1<small> 2019-07-26 </small>
+    <div id="gargle-031" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.1">
+<a href="#gargle-031" class="anchor"></a>gargle 0.3.1<small> 2019-07-26 </small>
 </h1>
 <ul>
 <li><p><a href="https://gargle.r-lib.org/articles/non-interactive-auth.html">Non-interactive auth</a> is a new vignette that serves as a guide for any client packages that use gargle for auth.</p></li>
@@ -179,9 +194,9 @@
 <li><p>The yes/no asking if it’s OK to cache OAuth tokens prints fully now (r-dbi/bigrquery<a href='https://github.com/r-lib/gargle/issues/333'>#333</a>).</p></li>
 </ul>
 </div>
-    <div id="gargle-0-3-0" class="section level1">
-<h1 class="page-header">
-<a href="#gargle-0-3-0" class="anchor"></a>gargle 0.3.0<small> 2019-06-27 </small>
+    <div id="gargle-030" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.0">
+<a href="#gargle-030" class="anchor"></a>gargle 0.3.0<small> 2019-06-27 </small>
 </h1>
 <ul>
 <li><p>The unexported functions available for generating standardized docs for <code>PKG_auth</code> functions in client packages have been updated.</p></li>
@@ -190,9 +205,9 @@
 <li><p><code><a href="../reference/credentials_byo_oauth2.html">credentials_byo_oauth2()</a></code> gains the ability to ingest a token from an object of class <code>httr::request</code>, i.e. to retrieve the <code>auth_token</code> component that holds an object of class <code><a href="https://httr.r-lib.org/reference/Token-class.html">httr::Token2.0</a></code> that has been processed with <code><a href="https://httr.r-lib.org/reference/config.html">httr::config()</a></code>.</p></li>
 </ul>
 </div>
-    <div id="gargle-0-2-0" class="section level1">
-<h1 class="page-header">
-<a href="#gargle-0-2-0" class="anchor"></a>gargle 0.2.0<small> 2019-06-11 </small>
+    <div id="gargle-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#gargle-020" class="anchor"></a>gargle 0.2.0<small> 2019-06-11 </small>
 </h1>
 <ul>
 <li><p>All built-in API credentials have been rotated and are stored internally in a way that reinforces appropriate use. There is a new <a href="https://www.tidyverse.org/google_privacy_policy/">Privacy policy</a> as well as a <a href="https://www.tidyverse.org/google_privacy_policy/#policies-for-authors-of-packages-or-other-applications">policy for authors of packages or other applications</a>. This is related to a process to get the gargle project <a href="https://support.google.com/cloud/answer/7454865?hl=en">verified</a>, which affects the OAuth2 capabilities and the consent screen.</p></li>
@@ -200,9 +215,9 @@
 <li><p><code><a href="../reference/credentials_byo_oauth2.html">credentials_byo_oauth2()</a></code> is a new credential function. It is included in the default registry consulted by <code><a href="../reference/token_fetch.html">token_fetch()</a></code> and is tried just before <code><a href="../reference/credentials_user_oauth2.html">credentials_user_oauth2()</a></code>.</p></li>
 </ul>
 </div>
-    <div id="gargle-0-1-3" class="section level1">
-<h1 class="page-header">
-<a href="#gargle-0-1-3" class="anchor"></a>gargle 0.1.3<small> 2019-06-03 </small>
+    <div id="gargle-013" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.3">
+<a href="#gargle-013" class="anchor"></a>gargle 0.1.3<small> 2019-06-03 </small>
 </h1>
 <ul>
 <li>Initial CRAN release</li>
@@ -210,18 +225,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#gargle-development-version">development version</a></li>
-        <li><a href="#gargle-0-4-0">0.4.0</a></li>
-        <li><a href="#gargle-0-3-1">0.3.1</a></li>
-        <li><a href="#gargle-0-3-0">0.3.0</a></li>
-        <li><a href="#gargle-0-2-0">0.2.0</a></li>
-        <li><a href="#gargle-0-1-3">0.1.3</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -233,7 +240,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

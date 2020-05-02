@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>gargle: Utilities for Working with Google APIs — gargle-package • gargle</title>
+<title>Generate a field mask — field_mask • gargle</title>
 
 
 <!-- jquery -->
@@ -39,11 +39,18 @@
 
 
 
-<meta property="og:title" content="gargle: Utilities for Working with Google APIs — gargle-package" />
-<meta property="og:description" content="Provides utilities for working with Google APIs
-    &amp;lt;https://developers.google.com/apis-explorer&amp;gt;.  This includes
-    functions and classes for handling common credential types and for
-    preparing, executing, and processing HTTP requests." />
+<meta property="og:title" content="Generate a field mask — field_mask" />
+<meta property="og:description" content="Many Google API requests take a field mask, via a fields parameter, in the
+URL and/or in the body. field_mask() generates such a field mask from an R
+list, typically a list that is destined to be part of the body of a request
+that writes or updates a resource. field_mask() is designed to help in the
+common case where the attributes you wish to modify are exactly the ones
+represented in the object. It is possible to use a &quot;larger&quot; field mask, that
+is either less specific or that explicitly includes other attributes, in
+which case the attributes covered by the mask but absent from the object are
+reset to default values. This is not exactly the use case field_mask() is
+designed for, but its output could still be useful as a first step in
+constructing such a mask." />
 
 
 
@@ -157,30 +164,60 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>gargle: Utilities for Working with Google APIs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/r-lib/gargle/blob/master/R/gargle-package.R'><code>R/gargle-package.R</code></a></small>
-    <div class="hidden name"><code>gargle-package.Rd</code></div>
+    <h1>Generate a field mask</h1>
+    <small class="dont-index">Source: <a href='https://github.com/r-lib/gargle/blob/master/R/field-mask.R'><code>R/field-mask.R</code></a></small>
+    <div class="hidden name"><code>field_mask.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Provides utilities for working with Google APIs
-    &lt;https://developers.google.com/apis-explorer&gt;.  This includes
-    functions and classes for handling common credential types and for
-    preparing, executing, and processing HTTP requests.</p>
+    <p>Many Google API requests take a field mask, via a <code>fields</code> parameter, in the
+URL and/or in the body. <code>field_mask()</code> generates such a field mask from an R
+list, typically a list that is destined to be part of the body of a request
+that writes or updates a resource. <code>field_mask()</code> is designed to help in the
+common case where the attributes you wish to modify are exactly the ones
+represented in the object. It is possible to use a "larger" field mask, that
+is either less specific or that explicitly includes other attributes, in
+which case the attributes covered by the mask but absent from the object are
+reset to default values. This is not exactly the use case <code>field_mask()</code> is
+designed for, but its output could still be useful as a first step in
+constructing such a mask.</p>
     </div>
 
+    <pre class="usage"><span class='fu'>field_mask</span>(<span class='no'>x</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A named R list, where the requirement for names applies at all
+levels, i.e. recursively.</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A Google API field mask, as a string.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://gargle.r-lib.org'>https://gargle.r-lib.org</a></p></li>
-<li><p><a href='https://github.com/r-lib/gargle'>https://github.com/r-lib/gargle</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/r-lib/gargle/issues'>https://github.com/r-lib/gargle/issues</a></p></li>
-</ul>
+    <div class='dont-index'><p>The documentation for the <a href='https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#json-encoding-of-field-masks'>JSON encoding of a Protocol Buffers FieldMask</a>.</p></div>
 
-</div>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>sheetId</span> <span class='kw'>=</span> <span class='fl'>1234</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"my_favorite_worksheet"</span>)
+<span class='fu'>field_mask</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; sheetId,title</div><div class='input'>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+  <span class='kw'>userEnteredFormat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+    <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+      <span class='kw'>red</span> <span class='kw'>=</span> <span class='fl'>159</span> / <span class='fl'>255</span>, <span class='kw'>green</span> <span class='kw'>=</span> <span class='fl'>183</span> / <span class='fl'>255</span>, <span class='kw'>blue</span> <span class='kw'>=</span> <span class='fl'>196</span> / <span class='fl'>255</span>
+    )
+  )
+)
+<span class='fu'>field_mask</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; userEnteredFormat.backgroundColor(red,green,blue)</div><div class='input'>
+<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+  <span class='kw'>sheetId</span> <span class='kw'>=</span> <span class='fl'>1234</span>,
+  <span class='kw'>gridProperties</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>rowCount</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>columnCount</span> <span class='kw'>=</span> <span class='fl'>3</span>)
+)
+<span class='fu'>field_mask</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; sheetId,gridProperties(rowCount,columnCount)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
