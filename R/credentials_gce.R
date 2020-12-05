@@ -25,6 +25,7 @@ credentials_gce <- function(scopes = "https://www.googleapis.com/auth/cloud-plat
   if ("https://www.googleapis.com/auth/cloud-platform" %in% instance_scopes) {
     instance_scopes <- c(
       "https://www.googleapis.com/auth/bigquery",
+      "https://www.googleapis.com/auth/pubsub",
       instance_scopes
     )
   }
