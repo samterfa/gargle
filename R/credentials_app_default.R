@@ -56,7 +56,8 @@ credentials_app_default <- function(scopes = NULL, ..., subject = NULL) {
       "https://www.googleapis.com/auth/bigquery",
       "https://www.googleapis.com/auth/bigquery",
       "https://www.googleapis.com/auth/cloud-platform",
-      "https://www.googleapis.com/auth/cloud-platform.readonly"
+      "https://www.googleapis.com/auth/cloud-platform.readonly",
+      "https://www.googleapis.com/auth/pubsub"
     )
     if (is.null(scopes) || !all(scopes %in% valid_scopes)) {
       return(NULL)
