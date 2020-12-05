@@ -65,8 +65,8 @@ credentials_app_default <- function(scopes = NULL, ..., subject = NULL) {
     ui_line("ADC cred type: authorized_user")
     endpoint <- httr::oauth_endpoints("google")
     app <- httr::oauth_app("google", info$client_id, secret = info$client_secret)
- #   scope <- "https://www.googleapis.com/auth/cloud.platform"
-    scope <- scopes
+    scope <- "https://www.googleapis.com/auth/cloud.platform"
+ #   scope <- scopes
     token <- httr::Token2.0$new(
         endpoint = endpoint,
         app = app,
