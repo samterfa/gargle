@@ -206,10 +206,10 @@ Gargle2.0 <- R6::R6Class("Gargle2.0", inherit = httr::Token2.0, list(
   #' @description Initiate a new Gargle2.0 token
   init_credentials = function() {
     ui_line("initiating new token")
-    if (is_interactive()) {
+###    if (is_interactive()) {
       super$init_credentials()
-    } else {
-      abort("OAuth2 flow requires an interactive session")
-    }
+###    } else {
+ ###     abort("OAuth2 flow requires an interactive session")
+ ###   }
   }
 ))
